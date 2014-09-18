@@ -40,4 +40,11 @@ public class Blog {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	@Override
+	public String toString() {
+		return "Blog [blogId=" + blogId + ", title=" + title + ", message="
+				+ message + "]";
+	}
+	
+	
 }
