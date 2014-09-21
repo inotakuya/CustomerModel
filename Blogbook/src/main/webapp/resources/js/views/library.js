@@ -31,13 +31,18 @@ app.LibraryView  = Backbone.View.extend({
     addBlog: function(e){
         e.preventDefault();
         var formData = {};
+        var a = true;
         $("#addBlog div").children("input").each(function(i,el){
             if($(el).val() != ""){
                 formData[el.id] = $(el).val();
-                $(el).val("");
-                
+            }else{
+                a = false;
             }
         });
-        this.collection.create(formData);
+        if(a){
+            $("#title").val("");
+            $("#message").val("");
+            this.collection.create(formData);
+        }
     }
 });

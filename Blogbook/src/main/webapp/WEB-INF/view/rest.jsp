@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ブログブック</title>
+<link rel="stylesheet" href="<c:url value="resources/css/screen.css"/>">
 </head>
 <body>
 	<h2>ブログブック</h2>
@@ -18,22 +19,23 @@
 				<button id="add">追加</button>
 			</div>
 		</form>
+		<br>
 	</div>
 
 
-		<script id="blogTemplate" type="text/template"><ul>
-                        <li>{{title}}</li>
-                        <li>{{message}}</li>
-                        </ul>
-                    <button class="delete">削除</button>
-	</script>
-<!-- 	<div class="blogContainer">
-		<ul>
-			<li>タイトル</li>
-			<li>内容</li>
-		</ul>
-		<button class="delete">削除</button>
-	</div> -->
+	<script id="blogTemplate" type="text/template">
+		<br>
+		<div class="viewtitle">
+   		 	<label>{{title}}</label>
+		</div>
+		<input class="edit" value="{{title}}"><br>
+		<div class="viewmessage">
+        	<label>{{message}}</label>
+		</div>
+		<input class="message" value="{{message}}"><br>
+        <button class="delete">削除</button>
+    </script>
+
 
 	<script src="<c:url value="resources/js/lib/jquery-2.0.3.min.js" />"></script>
 	<script src="<c:url value="resources/js/lib/underscore-min.js"/>"></script>
