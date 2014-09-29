@@ -11,15 +11,18 @@
 
 	<context:property-placeholder location="classpath:spring/database.properties" />
 
-	<jdbc:embedded-database id="dataSource" type="HSQL"> </jdbc:embedded-database>
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+		<!-- <jdbc:script location="classpath:schema.sql" /> -->
+		<!-- <jdbc:script location="classpath:test-data.sql" /> -->
+	</jdbc:embedded-database>
+	
 
-	<!-- <bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${database.driverClassName}"></property>
-		<property name="url" value="${database.url}"></property>
-		<property name="username" value="${database.username}"></property>
-		<property name="password" value="${database.password}"></property>
-	</bean> -->
+
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="${database.driverClassName}"></property> 
+		<property name="url" value="${database.url}"></property> <property name="username" 
+		value="${database.username}"></property> <property name="password" value="${database.password}"></property> 
+		</bean> -->
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
