@@ -21,15 +21,6 @@ public class ItemController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/init",method = RequestMethod.GET)
-	public String create(){
-		Item item1 = new Item("冷蔵庫", 10000, "４ドア冷蔵庫（３５５Ｌ・右開き）");
-		Item item2 = new Item("洗濯機", 5000, "全自動洗濯機（5．5kg） ");
-		itemService.addItem(item1);
-		itemService.addItem(item2);
-		return "redirect:/item";
-	}
-	
 	@RequestMapping(value = "/detail",method = RequestMethod.GET)
 	public String detail(long itemId, Model model){
 		model.addAttribute("item",itemService.getItemByItemId(itemId));
