@@ -11,9 +11,9 @@
 
 	<context:property-placeholder location="classpath:spring/database.properties" />
 
-	<jdbc:embedded-database id="dataSource" type="HSQL">
-		<!-- <jdbc:script location="classpath:schema.sql" /> -->
-		<!-- <jdbc:script location="classpath:test-data.sql" /> -->
+	<jdbc:embedded-database id="dataSource" type="H2">
+	<!-- 	<jdbc:script location="classpath:schema.sql" />
+		<jdbc:script location="classpath:test-data.sql" /> -->
 	</jdbc:embedded-database>
 	
 
@@ -32,7 +32,7 @@
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="generateDdl" value="true"></property>
-				<property name="database" value="HSQL"></property>
+				<property name="database" value="H2"></property>
 			</bean>
 		</property>
 	</bean>

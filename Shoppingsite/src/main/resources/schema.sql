@@ -4,5 +4,5 @@ CREATE TABLE ITEM (
   PRICE INTEGER(11),
   Description varchar(300),
   PRIMARY KEY(ITEM_ID)
-)
+);
 
