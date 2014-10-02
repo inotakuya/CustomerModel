@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import jp.com.inotaku.validation.Login;
 import jp.com.inotaku.validation.LoginForm;
+import jp.com.inotaku.validation.UserCheck;
 
 
 
@@ -17,14 +20,19 @@ import jp.com.inotaku.validation.LoginForm;
 @Login(groups = LoginForm.class)
 public class User implements Serializable {
 	
+	public interface userEntry{};
+	
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "user_name")
+	@NotEmpty(groups = userEntry.class)
+	@UserCheck(groups = userEntry.class)
 	private String userName;
 	
 	@Column(name = "password")
+	@NotEmpty(groups = userEntry.class)
 	private String password;
 
 	public String getUserName() {

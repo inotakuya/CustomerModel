@@ -10,12 +10,12 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = LoginValidator.class)
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.TYPE})
+@Constraint(validatedBy = UserEntryForm.class)
+@Target({ElementType.METHOD,ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Login {
+public @interface UserCheck {
 
-	String message() default "";
+String message() default "";
 	
 	Class<?>[] groups() default{};
 	
