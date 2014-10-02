@@ -29,4 +29,14 @@ public class UserServiceImpl implements UserService {
 		userDao.addUser(user);
 	}
 
+	@Override
+	public boolean isUnusedUserName(String userName) {
+		try {
+			userDao.findByUserName(userName);
+		} catch (Exception e) {
+			return true;
+		}
+		return false;
+	}
+
 }

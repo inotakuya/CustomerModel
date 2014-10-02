@@ -12,5 +12,8 @@ public interface UserService {
 			String password);
 
 	public abstract void addUser(User user);
+	
+	boolean isUnusedUserName(String userName);
+
 
 }
