@@ -1,4 +1,4 @@
-package jp.com.inotaku.dao;
+package jp.com.inotaku.daoTest;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
+import jp.com.inotaku.dao.ItemDao;
 import jp.com.inotaku.domain.Item;
 
 import org.junit.Before;

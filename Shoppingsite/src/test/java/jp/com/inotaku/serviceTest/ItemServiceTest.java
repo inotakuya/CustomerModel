@@ -1,4 +1,4 @@
-package jp.com.inotaku.service;
+package jp.com.inotaku.serviceTest;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.*;
@@ -14,6 +14,9 @@ import jp.com.inotaku.dao.ItemDao;
 import jp.com.inotaku.domain.Item;
 
 
+
+import jp.com.inotaku.service.ItemService;
+import jp.com.inotaku.service.ItemServiceImpl;
 
 import org.junit.Before;
 import org.junit.Test;
