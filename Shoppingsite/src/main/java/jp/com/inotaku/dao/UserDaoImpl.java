@@ -38,4 +38,10 @@ public class UserDaoImpl implements UserDao {
 		return em.createQuery("from User").getResultList();
 	}
 
+	@Override
+	public User findByUserName(String userName) {
+		return (User) em.createQuery("from User where userName = :userName")
+				.setParameter("userName", userName).getSingleResult();
+	}
+
 }
