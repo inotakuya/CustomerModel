@@ -5,26 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ログイン画面</title>
+<title>ユーザー登録画面</title>
 </head>
 <body>
-	<h2>ログイン画面</h2>
-	<form:form modelAttribute="user" method="post" action="login">
-	<font color="red"><form:errors path="*"></form:errors></font>
-	<br><br>
+	<h2>ユーザー登録画面</h2>
+	<form:form modelAttribute="user" method="post" action="userEntry">
 		<table>
 			<tr>
 				<td>名前</td>
-				<td><form:input path="userName" /></td>
+				<td><form:input path="userName" /><font color="red"><form:errors
+							path="userName"></form:errors></font></td>
 			</tr>
 			<tr>
 				<td>パスワード</td>
-				<td><form:password path="password" /></td>
+				<td><form:password path="password" /><font color="red"><form:errors
+							path="password"></form:errors></font></td>
 			</tr>
 		</table>
 		<table>
 			<tr>
-				<td><input type="submit" value="ログイン"></td>
+				<td><input type="submit" value="登録"></td>
 				<td><input type="reset" value="リセット"></td>
 			</tr>
 		</table>
