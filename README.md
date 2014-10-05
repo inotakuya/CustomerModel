@@ -2,11 +2,12 @@
 
 
 ## 目次
+<!-- 
 * [商品紹介](#introduction)
 * [商品注文](#order)
 * [マイページ](#mypage)
 * [開発者画面](#admin)
-
+-->
 
 <a name="introduction"></a>
 
