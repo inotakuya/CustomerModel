@@ -8,6 +8,7 @@
 <title>商品一覧画面</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/jsp/cart_header.jsp" %>
 	<h2>商品一覧画面</h2>
 	<table border="1">
 		<tr>

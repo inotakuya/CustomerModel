@@ -1,6 +1,5 @@
 package jp.com.inotaku.controller;
 
-import jp.com.inotaku.domain.Item;
 import jp.com.inotaku.service.ItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,7 +10,7 @@
 <body>
 	<h2>ログイン画面</h2>
 	<form:form modelAttribute="user" method="post" action="login">
-	<font color="red"><form:errors path="*"></form:errors></font>
+	<form:errors path="*" cssClass="error"></form:errors>
 	<br><br>
 		<table>
 			<tr>

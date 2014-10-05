@@ -11,14 +11,9 @@
 
 	<context:property-placeholder location="classpath:spring/database.properties" />
 
-	<jdbc:embedded-database id="dataSource" type="H2">
-	<!-- 	<jdbc:script location="classpath:schema.sql" />
-		<jdbc:script location="classpath:test-data.sql" /> -->
-	</jdbc:embedded-database>
-	
 
 
-<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<property name="driverClassName" value="${database.driverClassName}"></property> 
 		<property name="url" value="${database.url}"></property> <property name="username" 
 		value="${database.username}"></property> <property name="password" value="${database.password}"></property> 
@@ -47,4 +42,12 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 	</bean>
+
+	<beans profile="dev">
+		<jdbc:embedded-database id="dataSource" type="H2">
+			<jdbc:script location="classpath:schema.sql" />
+			<jdbc:script location="classpath:test-data.sql" />
+		</jdbc:embedded-database>
+	</beans>
+
 </beans>

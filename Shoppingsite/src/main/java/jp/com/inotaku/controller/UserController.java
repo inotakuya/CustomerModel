@@ -1,14 +1,11 @@
 package jp.com.inotaku.controller;
 
-import javax.validation.Valid;
 
 import jp.com.inotaku.domain.User;
 import jp.com.inotaku.domain.User.userEntry;
 import jp.com.inotaku.service.UserService;
-import jp.com.inotaku.validation.Login;
 import jp.com.inotaku.validation.LoginForm;
 
-import org.h2.util.New;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -8,7 +8,6 @@ import static org.hamcrest.CoreMatchers.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.namespace.QName;
 
 import jp.com.inotaku.dao.ItemDao;
 import jp.com.inotaku.domain.Item;

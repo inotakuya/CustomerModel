@@ -13,13 +13,13 @@
 		<table>
 			<tr>
 				<td>名前</td>
-				<td><form:input path="userName" /><font color="red"><form:errors
-							path="userName"></form:errors></font></td>
+				<td><form:input path="userName" /><form:errors
+							path="userName" cssClass="error"></form:errors></td>
 			</tr>
 			<tr>
 				<td>パスワード</td>
-				<td><form:password path="password" /><font color="red"><form:errors
-							path="password"></form:errors></font></td>
+				<td><form:password path="password" /><form:errors
+							path="password" cssClass="error"></form:errors></td>
 			</tr>
 		</table>
 		<table>
