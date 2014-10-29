@@ -39,9 +39,6 @@ public class SeleniumTest {
     webElement = driver.findElement(By.cssSelector("div.viewmessage > label"));
     assertThat("samplemessage1", is(webElement.getText()));
     
-    driver.findElement(By.cssSelector("div.viewmessage > label")).click();
-    
-    Thread.sleep(2000);
     driver.findElement(By.cssSelector("button.delete")).click();
   }
 
