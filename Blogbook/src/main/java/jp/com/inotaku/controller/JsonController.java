@@ -6,6 +6,7 @@ import jp.com.inotaku.domain.Blog;
 import jp.com.inotaku.servise.BlogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,30 +21,30 @@ public class JsonController {
 	@Autowired
 	private BlogService blogService;
 	
-	@RequestMapping(value = "/",method = RequestMethod.GET)
+	@RequestMapping(value = "/",produces = MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.GET)
 	public @ResponseBody List<Blog> blogList(){
 		return blogService.getAllBlog(); 
 	}
 	
-	@RequestMapping(value = "/{blogId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{blogId}",produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public @ResponseBody Blog getBlog(@PathVariable long blogId){
 		return blogService.findByIdgetBlog(blogId);
 	}
 	
-	@RequestMapping(value = "/",method = RequestMethod.POST)
+	@RequestMapping(value = "/",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.POST)
 	public @ResponseBody Blog addBlog(@RequestBody Blog blog){
 		blogService.addBlog(blog);
 		return blog;
 	}
 	
-	@RequestMapping(value = "/{blogId}",method = RequestMethod.PUT)
+	@RequestMapping(value = "/{blogId}",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.PUT)
 	public @ResponseBody Blog update(@PathVariable long blogId,@RequestBody Blog blog){
 		blog.setBlogId(blogId);
 		blogService.update(blog);
 		return blog;
 	}
 	
-	@RequestMapping(value ="/{blogId}", method = RequestMethod.DELETE)
+	@RequestMapping(value ="/{blogId}",produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.DELETE)
 	public @ResponseBody Blog delete(@PathVariable long blogId){
 		Blog blog = blogService.findByIdgetBlog(blogId);
 		blogService.deleteBlog(blogId);
