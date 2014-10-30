@@ -6,6 +6,6 @@ describe("ビューテスト", function() {
 		var blogListView = new BlogListView(blog3);
 		expect(blogListView.render).toHaveBeenCalled();
 		expect(blogListView.renderBlog).toHaveBeenCalledWith(blog3);
-		console.log(blogView);
+		
 	});
 });

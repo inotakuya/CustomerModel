@@ -5,7 +5,6 @@ var BlogListView = Backbone.View.extend({
 	},
 	render:function(){
 		this.collection.each(function(item) {
-			console.log(item);
 			this.renderBlog(item);
 		},this);
 		
