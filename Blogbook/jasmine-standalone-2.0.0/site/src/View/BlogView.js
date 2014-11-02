@@ -14,8 +14,9 @@ var BlogView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.html(this.template(this.model.toJSON()));
+		this.$input = this.$('.edit:first');
 		return this;
-		this.$input = this.$('.edit');
+		
 	},
 
 	deleteBlog:function(){
