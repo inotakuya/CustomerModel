@@ -5,6 +5,21 @@ var mongoose = require('mongoose');
 
 var app = express();
 
+
+var allowCrossDomain = function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+	
+	if ('OPTIONS' == req.method) {
+		res.send(200);
+	}
+	else {
+		next();
+	}
+};
+app.use(allowCrossDomain);
+
 app.configure(function(){
 	app.use(express.bodyParser());
 
@@ -15,6 +30,7 @@ app.configure(function(){
 	app.use(express.static(path.join(application_root,'site')));
 
 	app.use(express.errorHandler({dumpException: true,showStack: true}));
+
 });
 
 app.get('/api',function(request,response){
@@ -48,7 +64,7 @@ app.get('/api/blogs/:id',function(request,response){
 			return console.log(err);
 		}
 	});
-	});
+});
 
 app.post('/api/blogs',function(request,response){
 	var blog = new BlogModel({

@@ -1,4 +1,4 @@
 var BlogList = Backbone.Collection.extend({
 	model:Blog,
-	url:'/api/blogs'
+	url:'http://localhost:8070/api/blogs'
 });

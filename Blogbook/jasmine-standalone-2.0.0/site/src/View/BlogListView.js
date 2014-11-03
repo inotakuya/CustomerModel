@@ -29,7 +29,9 @@ var BlogListView = Backbone.View.extend({
 
 	addBlog: function(e){
 		e.preventDefault();
-		this.collection.create(this.add());
+		if(this.$title.val() != '' && this.$message.val() != ''){
+			this.collection.create(this.add());
+		}
 		this.$title.val('');
 		this.$message.val('');
 	},

@@ -24,18 +24,18 @@
 		</section>
 	</section>
 	<script id="blogtemplate" type="text/template">
-		<ul>
-			<div class="view">
+		<div class="view">
+			<ul>
 				<li><%= title %></li>
-			</div>
-			<input class="edit" >
-			<div class="view">
 				<li><%= message %></li>
-			</div>
-			<textarea class="edit" rows="4" cols="40"/>
-		</ul>
-		<button class="">編集</button>
-		<button class="delete">削除</button>
+			</ul>
+			<button class="editbutton">編集</button>
+			<button class="delete">削除</button>
+		</div>
+		<input class="edit" name="title" value=<%= title %> >
+		<textarea class="edit" name="message" rows="4" cols="40"><%= message %></textarea>
+		<button class="edit"name="save">編集を終了</button>
+		<button class="edit" name="cancel">キャンセル</button>
 	</script>
 
 	<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>

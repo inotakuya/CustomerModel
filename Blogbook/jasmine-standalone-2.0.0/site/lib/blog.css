@@ -1,3 +1,15 @@
+body{
+	
+}
+
+#blogapp{
+
+}
+
+#header{
+	margin-bottom: 50px;
+}
+
 #blogList .edit {
 	display: none;
 }
@@ -8,4 +20,8 @@
 
 #blogList div.editing .view{
 	display: none;
+}
+
+#blogList li{
+	list-style-type: none;
 }
