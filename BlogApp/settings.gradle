@@ -1,0 +1,3 @@
+/*rootProject.name = 'BlogAPP'*/
+include 'Blogbook'
+include 'js'
