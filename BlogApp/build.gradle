@@ -30,6 +30,8 @@ compileJava {
 		dependencies { classpath 'com.bmuschko:gradle-tomcat-plugin:2.0' }
 	}
 	apply plugin: 'com.bmuschko.tomcat'
+	apply plugin:'application'
+	mainClassName = "jp.com.inotaku.Sample"
 	tomcat{ 
 		httpPort = 8090 
 	}
@@ -51,6 +53,11 @@ compileJava {
 		compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.5'
 		compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
 		compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'2.43.1'
+		
+		compile 'org.springframework.integration:spring-integration-core:4.0.4.RELEASE'
+		compile 'org.springframework.integration:spring-integration-stream:4.0.4.RELEASE'
+		compile 'org.springframework.integration:spring-integration-amqp:4.1.0.RELEASE'
+		
 		runtime group: 'ch.qos.logback', name: 'logback-classic', version:'1.0.13'
 		testCompile group: 'org.springframework', name: 'spring-test', version:'3.2.3.RELEASE'
 		testCompile group: 'junit', name: 'junit', version:'4.11'

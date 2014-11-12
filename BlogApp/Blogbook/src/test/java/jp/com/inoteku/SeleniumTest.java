@@ -27,7 +27,7 @@ public class SeleniumTest {
 
   @Test
   public void testSelenium() throws Exception {
-    driver.get(baseUrl + "/Blogbook/rest");
+    driver.get(baseUrl + "/Blogbook/index");
     driver.findElement(By.id("title")).clear();
     driver.findElement(By.id("title")).sendKeys("sampletitle");
     driver.findElement(By.id("message")).clear();

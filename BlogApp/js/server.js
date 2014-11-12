@@ -5,6 +5,10 @@ var mongoose = require('mongoose');
 
 var app = express();
 
+var amqp = require('amqplib');
+var when = require('when');
+
+
 
 var allowCrossDomain = function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
@@ -71,6 +75,21 @@ app.post('/api/blogs',function(request,response){
 		title:request.body.title,
 		message:request.body.message
 	});
+	amqp.connect('amqp://localhost').then(function(conn) {
+		return when(conn.createChannel().then(function(ch) {
+			var q = 'blog';
+			var msg = JSON.stringify(blog);
+
+			var ok = ch.assertQueue(q, {durable: false});
+
+			return ok.then(function(_qok) {
+				ch.sendToQueue(q, new Buffer(msg));
+				console.log(" [x] Sent '%s'", msg);
+				return ch.close();
+			});
+		})).ensure(function() { conn.close(); });
+	}).then(null, console.warn);
+
 	blog.save(function(err){
 		if(!err){
 			return console.log('追加されました。');
@@ -88,6 +107,21 @@ app.put('/api/blogs/:id',function(request,response){
 	return BlogModel.findById(request.params.id,function(err,blog){
 		blog.title = request.body.title;
 		blog.message = request.body.message;
+		amqp.connect('amqp://localhost').then(function(conn) {
+			return when(conn.createChannel().then(function(ch) {
+				var q = 'blog';
+				var msg = JSON.stringify(blog);
+
+				var ok = ch.assertQueue(q, {durable: false});
+
+				return ok.then(function(_qok) {
+					ch.sendToQueue(q, new Buffer(msg));
+					console.log(" [x] Sent '%s'", msg);
+					return ch.close();
+				});
+			})).ensure(function() { conn.close(); });
+		}).then(null, console.warn);
+
 		return blog.save(function(err){
 			if(!err){
 				console.log('更新されました。');
