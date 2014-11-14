@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/spring/application-config.xml</config>
 		<config>src/main/resources/spring/integration-context.xml</config>
+		<config>src/main/resources/spring/applicationContext-security.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/mvc-config.xml</config>

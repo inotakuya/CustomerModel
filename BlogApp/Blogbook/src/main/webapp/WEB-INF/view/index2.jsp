@@ -8,6 +8,8 @@
 </head>
 <body>
 	<h2>ブログブック</h2>
+	<a href="/Blogbook/spring_security_logout">ログアウト</a>
+	<a href="http://localhost:8070/">ブログ</a>
 	<div id="blogs">
 		<form id="addBlog" action="#">
 			<div>

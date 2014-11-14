@@ -9,7 +9,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
 	<filter>
 		<filter-name>Encoding</filter-name>
-		<filter-class>jp.com.inotaku.controller.SimpleCORSFilter</filter-class>
+		<filter-class>jp.com.inotaku.controller.SimpleCORSFilter
+		</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -20,8 +21,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<filter-name>Encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
@@ -43,7 +52,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		- Applied by ContextLoaderListener. -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/application-config.xml</param-value>
+		<param-value>classpath:spring/application*.xml</param-value>
 	</context-param>
 
 	<listener>
