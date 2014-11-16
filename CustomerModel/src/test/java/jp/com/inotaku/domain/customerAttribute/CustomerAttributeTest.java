@@ -2,6 +2,9 @@ package jp.com.inotaku.domain.customerAttribute;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
+import java.util.List;
+
 import jp.com.inotaku.domain.Customer;
 import jp.com.inotaku.domain.CustomerAttribute;
 import jp.com.inotaku.domain.Dao.CustomerAttributeDao;
@@ -58,7 +61,8 @@ public class CustomerAttributeTest {
 	}
 	@Test
 	public void test() {
-		System.out.println(customerAttributeRepository.findByNameLikeAndLocaleCode("a"));
+	List<CustomerAttribute> customerAttributes = customerAttributeRepository.findByNameLikeAndLocaleCode("a","01");
+	assertThat(customerAttributes.size(),is(1));
 	}
 
 }

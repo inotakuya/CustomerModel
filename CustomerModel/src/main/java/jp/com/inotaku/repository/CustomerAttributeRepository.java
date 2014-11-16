@@ -9,6 +9,7 @@ import org.springframework.roo.addon.layers.repository.jpa.RooJpaRepository;
 
 @RooJpaRepository(domainType = CustomerAttribute.class)
 public interface CustomerAttributeRepository {
-	@Query("FROM CustomerAttribute where name like %:name%")
-	List<CustomerAttribute> findByNameLikeAndLocaleCode(@Param("name")String name);
+	
+	@Query("select ca FROM CustomerAttribute ca join ca.customer c where name like %:name% and c.localeCode like %:localeCode%")
+	List<CustomerAttribute> findByNameLikeAndLocaleCode(@Param("name")String name,@Param("localeCode")String localCode);
 }
