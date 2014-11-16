@@ -41,5 +41,13 @@ public class CustomerAttribute {
 		this.name = name;
 		this.valueString = valueString;
 	}
+	
+	public CustomerAttribute(long customerAttrId, 
+			String name, String valueString) {
+		super();
+		this.customerAttrId = customerAttrId;
+		this.name = name;
+		this.valueString = valueString;
+	}
     
 }
