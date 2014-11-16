@@ -1,16 +1,22 @@
 package jp.com.inotaku.domain;
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-public class Authorities {
+@Entity
+public class Authorities implements Serializable {
 
-    @NotNull
-    private String authority;
-
-    @NotNull
+	@Id
+	@NotNull
     private long roleId;
+	
+    @NotNull
+    private String roleName;
 
     @NotNull
     @ManyToOne
-    private Consumer consumer;
+    private User consumer;
 }

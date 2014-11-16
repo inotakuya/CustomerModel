@@ -7,6 +7,8 @@
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>jp.com.inotaku.domain.Blog</class>
+		<class>jp.com.inotaku.domain.User</class>
+		<class>jp.com.inotaku.domain.Authorities</class>
 		<properties>
 			<property name="hibernate.dialect" value="${hibernate.dialect}" />
 			<property name="hib.hbm2ddl.auto" value="create" />

@@ -31,7 +31,7 @@ compileJava {
 	}
 	apply plugin: 'com.bmuschko.tomcat'
 	apply plugin: 'application'
-
+	apply plugin: 'eclipse-wtp'
 	mainClassName = "jp.com.inotaku.Sample"
 	tomcat{ 
 		httpPort = 8090 
