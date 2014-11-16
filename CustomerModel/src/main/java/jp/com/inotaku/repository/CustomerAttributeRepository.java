@@ -12,4 +12,7 @@ public interface CustomerAttributeRepository {
 	
 	@Query("select ca FROM CustomerAttribute ca join ca.customer c where name like %:name% and c.localeCode like %:localeCode%")
 	List<CustomerAttribute> findByNameLikeAndLocaleCode(@Param("name")String name,@Param("localeCode")String localCode);
+	
+	@Query("select ca FROM CustomerAttribute ca left join ca.customer c where name like %:name%")
+	List<CustomerAttribute> findByNameLikeAndLocaleCode(@Param("name")String name);
 }
