@@ -1,5 +1,5 @@
 allprojects{
-	apply plugin: 'eclipse'
+	/*apply plugin: 'eclipse'*/
 }
 buildscript {
 	repositories { 
@@ -34,6 +34,7 @@ compileJava {
 	}
 	apply plugin: 'com.bmuschko.tomcat'
 	apply plugin: 'application'
+	apply plugin: 'maven'
 	/*apply plugin: 'eclipse-wtp'*/
 	mainClassName = "jp.com.inotaku.Sample"
 	tomcat{ 
