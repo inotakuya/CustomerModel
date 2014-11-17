@@ -3,7 +3,7 @@ package jp.com.inotaku.controller;
 import java.util.List;
 
 import jp.com.inotaku.domain.Blog;
-import jp.com.inotaku.servise.BlogService;
+import jp.com.inotaku.service.BlogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -22,7 +22,7 @@ public class JsonController {
 	private BlogService blogService;
 	
 	@RequestMapping(value = "/",produces = MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.GET)
-	public @ResponseBody List<Blog> blogList(){
+	public @ResponseBody List<Blog> blogList() throws Exception{
 		return blogService.getAllBlog(); 
 	}
 	

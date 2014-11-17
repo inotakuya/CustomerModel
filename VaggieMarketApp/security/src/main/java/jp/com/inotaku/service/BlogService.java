@@ -1,4 +1,4 @@
-package jp.com.inotaku.servise;
+package jp.com.inotaku.service;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import jp.com.inotaku.domain.Blog;
 
 public interface BlogService {
 
-	List<Blog> getAllBlog();
+	List<Blog> getAllBlog() throws Exception;
 	
 	Blog findByIdgetBlog(long blogId);
 	
