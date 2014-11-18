@@ -46,28 +46,26 @@ compileJava {
 	}
 	
 	dependencies {
-		/*compile group: 'org.springframework', name: 'spring-webmvc', version:'3.2.3.RELEASE'
+		compile group: 'org.springframework', name: 'spring-webmvc', version:'3.2.3.RELEASE'
 		compile group: 'org.springframework', name: 'spring-jdbc', version:'3.2.3.RELEASE'
 		compile group: 'org.springframework.data', name: 'spring-data-jpa', version:'1.6.2.RELEASE'
 		compile group: 'org.springframework', name: 'spring-context', version:'3.2.3.RELEASE'
 		compile group: 'org.springframework', name: 'spring-orm', version:'3.2.4.RELEASE'
-		compile group: 'org.codehaus.jackson', name: 'jackson-mapper-lgpl', version:'1.9.2'
-		compile group: 'com.h2database', name: 'h2', version:'1.3.174'
-		compile group: 'javax.servlet', name: 'jstl', version:'1.2'
 		compile group: 'org.springframework', name: 'spring-tx', version:'3.2.3.RELEASE'
-		compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.5'
-		compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
-		compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'2.43.1'
 		compile 'org.springframework.security:spring-security-config:3.2.5.RELEASE'
 		compile 'org.springframework.security:spring-security-web:3.2.5.RELEASE'
-		compile 'javax.validation:validation-api:1.1.0.Final'
-		compile 'org.hibernate:hibernate-validator:5.1.3.Final'
-		compile 'org.slf4j:slf4j-api:1.7.7'
-		compile 'commons-dbcp:commons-dbcp:1.4'
+		
 		compile 'javax.mail:mail:1.4.5'
 		compile 'javax.validation:validation-api:1.0.0.GA'
+		compile group: 'com.h2database', name: 'h2', version:'1.3.174'
+		compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
+		compile 'org.hibernate:hibernate-validator:4.3.0.Final'
 		compile 'org.hibernate:hibernate-validator-annotation-processor:4.3.0.Final'
-
+		
+		compile group: 'org.codehaus.jackson', name: 'jackson-mapper-lgpl', version:'1.9.2'
+		
+		compile 'org.slf4j:slf4j-api:1.7.7'
+		compile 'commons-dbcp:commons-dbcp:1.4'
 		
 		compile 'org.springframework.integration:spring-integration-core:4.0.4.RELEASE'
 		compile 'org.springframework.integration:spring-integration-stream:4.0.4.RELEASE'
@@ -78,38 +76,11 @@ compileJava {
 		testCompile group: 'junit', name: 'junit', version:'4.11'
 		testCompile 'org.mockito:mockito-all:1.10.8'
 		testCompile 'org.dbunit:dbunit:2.5.0'
-		*/
-		testCompile 'junit:junit:4.11'
-		compile 'javax.servlet:javax.servlet-api:3.0.1'
-		compile 'javax.servlet.jsp:jsp-api:2.2'
-		compile 'javax.servlet:jstl:1.2'
-		compile 'javax.validation:validation-api:1.0.0.GA'
-		compile 'org.hibernate:hibernate-validator:4.3.0.Final'
-		compile 'org.hibernate:hibernate-validator-annotation-processor:4.3.0.Final'
-		compile 'org.springframework:spring-webmvc:3.2.0.RELEASE'
-		testCompile 'org.springframework:spring-test:3.2.0.RELEASE'
-		compile 'org.springframework:spring-jdbc:3.2.0.RELEASE'
-		compile 'org.slf4j:slf4j-api:1.7.2'
-		compile 'org.aspectj:aspectjweaver:1.7.1'
-		compile 'org.aspectj:aspectjrt:1.7.1'
-		compile 'com.h2database:h2:1.3.170'
-		compile 'javax.mail:mail:1.4.5'
-		compile 'commons-dbcp:commons-dbcp:1.4'
-		compile 'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final'
-		compile group: 'org.springframework', name: 'spring-orm', version:'3.2.4.RELEASE'
-		compile group: 'org.springframework', name: 'spring-context', version:'3.2.3.RELEASE'
-		compile group: 'org.springframework', name: 'spring-tx', version:'3.2.3.RELEASE'
-		compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.1.Final'
+		testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'2.43.1'
+		testCompile 'org.apache.poi:poi:3.2-FINAL'
 		
-		testCompile 'org.mockito:mockito-all:1.9.5'
-		testCompile 'org.dbunit:dbunit:2.5.0'
 		
-
-
-		
-
-
-		
+		compile group: 'javax.servlet', name: 'jstl', version:'1.2'
 		providedCompile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
 		providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.2'
 
@@ -120,5 +91,20 @@ compileJava {
 			exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
 		}
 	}
+	
+
 }
+
+project(':Shoppingsite'){
+	task xlsCopy(type: Copy) {
+		from('src/test/java'){
+			include '**/*.xls'
+		}
+		into 'build/classes/test'
+		
+	}
+	test.dependsOn xlsCopy
+}
+
+
 

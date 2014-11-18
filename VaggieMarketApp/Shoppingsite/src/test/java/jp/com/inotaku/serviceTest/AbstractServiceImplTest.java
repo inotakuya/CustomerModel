@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 import jp.com.inotaku.test.config.ServiceTestConfig;
 import jp.com.inotaku.test.listener.ServiceTestExecutionListener;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,4 +23,9 @@ public class AbstractServiceImplTest extends
 
 	@PersistenceContext
 	protected EntityManager em;
+	
+	@Test
+	public void a(){
+		
+	}
 }
