@@ -1,11 +1,3 @@
-CREATE TABLE BLOG (
-	BLOG_ID INT NOT NULL AUTO_INCREMENT,
-	TITLE VARCHAR(30) NOT NULL,
-	MESSAGE VARCHAR(100)NOT NULL,
-	PRIMARY KEY (BLOG_ID)
-);
-
-
 create table users(
     username varchar(256) not null primary key,
     password varchar(256) not null,
