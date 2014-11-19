@@ -18,6 +18,8 @@ public class BlogServiceImpl implements BlogService {
 	@Autowired
 	private BlogDao blogDao;
 	
+	public BlogServiceImpl(){}
+	
 	public BlogServiceImpl(BlogDao blogDao){
 		this.blogDao = blogDao;
 	}
