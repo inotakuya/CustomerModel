@@ -1,6 +1,7 @@
 package jp.com.inotaku.domain;
 
 import static org.junit.Assert.*;
+import jp.com.inotaku.dao.BlogDao;
 import jp.com.inotaku.domain.User;
 import jp.com.inotaku.repository.UserRipository;
 
