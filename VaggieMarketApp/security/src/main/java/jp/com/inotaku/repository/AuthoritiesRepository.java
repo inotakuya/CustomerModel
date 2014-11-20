@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AuthoritiesRipository extends JpaRepository<Authorities, Long> {
+public interface AuthoritiesRepository extends JpaRepository<Authorities, Long> {
 
 }

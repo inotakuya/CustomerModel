@@ -50,9 +50,6 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.springframework.integration/spring-integration-amqp/4.1.0.RELEASE/524da02c3ae0ebefaf28dcc37d88df1181f75ec/spring-integration-amqp-4.1.0.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.easymock/easymock/2.4/a1703c7b69a0590e25dad65ff8d14d7e465b019d/easymock-2.4.jar">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>

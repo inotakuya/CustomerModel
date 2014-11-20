@@ -1,8 +1,8 @@
 package jp.com.inotaku.domain;
 
 import static org.junit.Assert.*;
-import jp.com.inotaku.repository.AuthoritiesRipository;
-import jp.com.inotaku.repository.UserRipository;
+import jp.com.inotaku.repository.AuthoritiesRepository;
+import jp.com.inotaku.repository.UserRepository;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,14 +12,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:spring/application*.xml")
+@ContextConfiguration(locations="classpath:spring/application-config.xml")
 public class AuthoritiesTest {
 	
 	@Autowired
-	private UserRipository userRipository;
+	private UserRepository userRipository;
 	
 	@Autowired
-	private AuthoritiesRipository authoritiesRipository;
+	private AuthoritiesRepository authoritiesRipository;
 	
 	private User user1;
 	
@@ -27,9 +27,11 @@ public class AuthoritiesTest {
 	
 	@Before
 	public void init(){
-		user1 = new User("user", "user", true);
+		/*user1 = new User("user", "user", true);
 		userRipository.save(user1);
 		authorities1 = new Authorities("ROLE_USER");
+		authoritiesRipository.save(authorities1);*/
+		authorities1 = new Authorities();
 		authoritiesRipository.save(authorities1);
 	}
 

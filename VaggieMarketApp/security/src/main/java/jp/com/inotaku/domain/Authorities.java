@@ -2,7 +2,10 @@ package jp.com.inotaku.domain;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -11,9 +14,10 @@ public class Authorities implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-
 	@Id
-    @NotNull
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long roleId;
+
     private String roleName;
 
 
@@ -21,6 +25,14 @@ public class Authorities implements Serializable {
     private User consumer;
 
 
+
+	public long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
+	}
 
 	public String getRoleName() {
 		return roleName;
