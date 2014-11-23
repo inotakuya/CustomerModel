@@ -15,6 +15,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="customer")
 public class Customer implements Serializable {
@@ -33,55 +40,6 @@ public class Customer implements Serializable {
     private String password;
 
 
-	public long getCustomerId() {
-		return customerId;
-	}
-
-
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
-	}
-
-
-	public String getCustomerName() {
-		return customerName;
-	}
-
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
-	public Customer() {}
-
-
-	public Customer(long customerId, String customerName, String password) {
-		super();
-		this.customerId = customerId;
-		this.customerName = customerName;
-		this.password = password;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName="
-				+ customerName + ", password=" + password + "]";
-	}
-
-    
-	
     
 }
 

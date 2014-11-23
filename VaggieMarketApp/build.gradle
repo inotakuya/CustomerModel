@@ -85,6 +85,8 @@ compileJava {
 		compile group: 'javax.servlet', name: 'jstl', version:'1.2'
 		providedCompile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
 		providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.2'
+		providedCompile 'org.projectlombok:lombok:1.14.8'
+
 
 		def tomcatVersion = '7.0.52'
 		tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",

@@ -1,4 +1,4 @@
-package jp.com.inotaku.domain.customer;
+package jp.com.inotaku.domain;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -38,7 +38,7 @@ public class CustomerTest {
 		List<Customer> customers = customerRepository.findAll();
 		assertThat(customers.get(0).getCustomerName(), is("user"));
 		assertThat(customers.get(1).getPassword(), is("0002"));
-		
+		System.out.println(customers);
 	}
 
 }
