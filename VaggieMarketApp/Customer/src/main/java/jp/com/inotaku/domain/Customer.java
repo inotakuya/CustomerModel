@@ -3,6 +3,7 @@ package jp.com.inotaku.domain;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -39,6 +40,9 @@ public class Customer implements Serializable {
 	@Column(name="password")
     private String password;
 
+	@OneToMany
+	@Column(name="customer_role")
+	private List<CustomerRole> customerRoleList;
 
     
 }

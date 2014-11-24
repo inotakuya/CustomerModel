@@ -79,6 +79,7 @@ compileJava {
 		testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'2.43.1'
 		testCompile 'org.apache.poi:poi:3.2-FINAL'
 		testCompile 'org.easymock:easymock:2.4'
+		testCompile 'org.kubek2k:springockito-annotations:1.0.9'
 		
 		
 		
@@ -108,4 +109,9 @@ project(':Shoppingsite'){
 		
 	}
 	test.dependsOn xlsCopy
+}
+project(':security'){
+	dependencies{
+		compile project(':Customer')
+	}
 }
