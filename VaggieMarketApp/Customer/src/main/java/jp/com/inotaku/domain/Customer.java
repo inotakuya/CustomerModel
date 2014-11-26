@@ -2,6 +2,7 @@ package jp.com.inotaku.domain;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,9 +41,9 @@ public class Customer implements Serializable {
 	@Column(name="password")
     private String password;
 
-	@OneToMany
-	@Column(name="customer_role")
-	private List<CustomerRole> customerRoleList;
+	@OneToMany(mappedBy="customer")
+	@Column(name="role_list")
+	private List<Role> roleList = new ArrayList<Role>();
 
     
 }
