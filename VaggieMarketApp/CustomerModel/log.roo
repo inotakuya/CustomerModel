@@ -1,0 +1,31 @@
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-16 03:50:05
+project --topLevelPackage jp.com.inotaku --projectName CustomerModel --java 7 --packaging JAR
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-11-16 03:50:18
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-16 03:50:26
+persistence setup --database H2_IN_MEMORY --provider HIBERNATE 
+entity jpa --class jp.com.inotaku.domain.Customer --activeRecord 
+field number --fieldName customerId --type long 
+field number --fieldName challengeQuestionId --type long
+field string --fieldName localeCode 
+entity jpa --class ~.domain.CustomerAttribute --activeRecord --testAutomatically 
+field number --fieldName customerAttrId --type long
+field reference --fieldName customer --type ~.domain.Customer --cardinality MANY_TO_ONE 
+focus --class ~.domain.Customer
+field set --fieldName customerAttributeList --type ~.domain.CustomerAttribute 
+repository jpa --interface ~.repository.CustomerRepository --entity ~.domain.Customer
+repository jpa --interface ~.repository.CustomerAttributeRepository --entity ~.domain.CustomerAttribute
+service type --interface ~.service.CustomerService --entity ~.domain.Customer
+service type --interface ~.service.CustomerAttributeService --entity ~.domain.CustomerAttribute
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-11-16 04:07:24
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-16 04:07:40
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-11-16 04:24:38
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-16 04:57:04
+focus --class ~.domain.CustomerAttribute
+field string --fieldName name
+// [failed] field string --fieldName value
+field string --fieldName valueString
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-11-16 06:13:11
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-16 13:28:31
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-16 15:17:25
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-11-21 16:49:37
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-11-21 17:57:54

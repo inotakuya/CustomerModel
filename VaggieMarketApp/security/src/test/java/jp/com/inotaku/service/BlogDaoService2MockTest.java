@@ -37,7 +37,11 @@ public class BlogDaoService2MockTest {
 		EasyMock.verify(blogDao);
 	}
 
+<<<<<<< HEAD
 	@Test(expected = Exception.class)
+=======
+	@Test/*(expected = Exception.class)*/
+>>>>>>> Customer
 	public void GetAllBlogExceptionTest() throws Exception {
 		Blog b = new Blog();
 		b.setBlogId(100L);

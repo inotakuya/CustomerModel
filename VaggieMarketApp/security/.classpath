@@ -6,6 +6,10 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container" exported="true"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="src" path="/Customer" exported="true"/>
+>>>>>>> Customer
 	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/3.2.3.RELEASE/35f1ac5640cac763d74681d16544cb77f40765f5/spring-webmvc-3.2.3.RELEASE-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/3.2.3.RELEASE/6d6d1b53c53dbefd0d8c15f2d5c194ced1f8d53c/spring-webmvc-3.2.3.RELEASE.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -81,22 +85,38 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.easymock/easymock/2.4/2bc57857d984110ea403d30894186c62d4400389/easymock-2.4-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.easymock/easymock/2.4/a1703c7b69a0590e25dad65ff8d14d7e465b019d/easymock-2.4.jar" exported="true">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
+=======
 	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/2f5877ef15adb721421e80f5aa2b6fe069eec8ed/jstl-1.2-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar" exported="true">
+>>>>>>> Customer
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/2f5877ef15adb721421e80f5aa2b6fe069eec8ed/jstl-1.2-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar" exported="true">
+=======
 	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/servlet-api/2.5/21599814ad9a605b86f3e6381571beccd861a32/servlet-api-2.5-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/servlet-api/2.5/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar" exported="true">
+>>>>>>> Customer
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/servlet-api/2.5/21599814ad9a605b86f3e6381571beccd861a32/servlet-api-2.5-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet/servlet-api/2.5/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar" exported="true">
+=======
 	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet.jsp/jsp-api/2.2/78bc1457a1fc2f8a7037cd2b247062ab3daac212/jsp-api-2.2-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet.jsp/jsp-api/2.2/5bf0c26ef77df58c7c28be2d9d52246f2b437a54/jsp-api-2.2.jar" exported="true">
+>>>>>>> Customer
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+<<<<<<< HEAD
+	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet.jsp/jsp-api/2.2/78bc1457a1fc2f8a7037cd2b247062ab3daac212/jsp-api-2.2-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/javax.servlet.jsp/jsp-api/2.2/5bf0c26ef77df58c7c28be2d9d52246f2b437a54/jsp-api-2.2.jar" exported="true">
+=======
+	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.14.8/ae5d70b49f5522a5c63abee50d9e9ad7a1cfce4e/lombok-1.14.8-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.14.8/8ac073941721e0b521ec8e8bad088b1e7b8cd332/lombok-1.14.8.jar" exported="true">
+>>>>>>> Customer
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -136,6 +156,19 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.easymock/easymock/2.4/2bc57857d984110ea403d30894186c62d4400389/easymock-2.4-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.easymock/easymock/2.4/a1703c7b69a0590e25dad65ff8d14d7e465b019d/easymock-2.4.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.kubek2k/springockito-annotations/1.0.9/d196e1a62fd3818a6c4c2008f15b4ff17c8d8d09/springockito-annotations-1.0.9-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.kubek2k/springockito-annotations/1.0.9/8c8c4acdeb734a78d524424f5099a05c0147ba09/springockito-annotations-1.0.9.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+>>>>>>> Customer
 	<classpathentry sourcepath="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.8.2.RELEASE/3e5c98582526371869f441850ba18becc54d766f/spring-data-commons-1.8.2.RELEASE-sources.jar" kind="lib" path="C:/Users/yuraku/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.8.2.RELEASE/6362720986098362d43e124dc5047bbb71f0c42e/spring-data-commons-1.8.2.RELEASE.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>

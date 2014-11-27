@@ -9,7 +9,6 @@ public class Sample {
 			GenericXmlApplicationContext context = new GenericXmlApplicationContext();
 			context.load("classpath:spring/integration-context.xml");
 			context.refresh();
-
 			
 		}
 	}
