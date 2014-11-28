@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Delegate;
 
 @Data
 @AllArgsConstructor
@@ -41,7 +42,8 @@ public class Customer implements Serializable {
 	@Column(name="password")
     private String password;
 
-	@OneToMany(mappedBy="customer")
+	@Delegate
+	@ManyToMany
 	@Column(name="role_list")
 	private List<Role> roleList = new ArrayList<Role>();
 
