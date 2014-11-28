@@ -1,6 +1,10 @@
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 include "security","js","Shoppingsite"
 =======
 include "security","js","Shoppingsite","Customer","CustomerModel"
 >>>>>>> Customer
+=======
+include "security","js","Shoppingsite"
+>>>>>>> Shoppingsite

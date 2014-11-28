@@ -1,3 +1,8 @@
 #org.springsource.ide.eclipse.gradle.core.preferences.GradleProjectPreferences
+<<<<<<< HEAD
 #Wed Nov 19 09:40:19 JST 2014
+=======
+#Tue Nov 18 15:49:29 JST 2014
+org.springsource.ide.eclipse.gradle.linkedresources=
+>>>>>>> Shoppingsite
 org.springsource.ide.eclipse.gradle.rootprojectloc=..
