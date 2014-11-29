@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RegisterController {
 	
 	@Setter
+	@Autowired
 	private CustomerService customerService;
 
 	@RequestMapping(method=RequestMethod.GET)
@@ -27,7 +28,7 @@ public class RegisterController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String processRegister(@ModelAttribute Customer customer,Model model){
-		customerService.saveCustomer(customer);
+		customerService.saveUserCustomer(customer);
 		return "redirect:/";
 	}
 }

@@ -86,7 +86,7 @@ public class RegisterControllerTest {
 		Customer customer = (Customer) modelMap.get("customer");
 		assertThat(customer.getCustomerName(), is("user"));
 
-		verify(customerServiceMock).saveCustomer((Customer) anyObject());
+		verify(customerServiceMock).saveUserCustomer((Customer) anyObject());
 	}
 
 }

@@ -10,6 +10,8 @@ import java.util.List;
 import jp.com.inotaku.domain.Customer;
 import jp.com.inotaku.domain.Role;
 import jp.com.inotaku.repository.CustomerRepository;
+import jp.com.inotaku.repository.CustomerRepositoryStub;
+import jp.com.inotaku.repository.RolerepositoryStub;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -47,5 +49,19 @@ public class CustomerServiceImplTest {
 		customerService.deleteCustomer(1L);
 		verify(customerRepository).delete(anyLong());
 		verify(customerRepository,never()).delete((Customer)anyObject());
+	}
+	
+	@Test
+	public void saveUserCustomertest() throws Exception {
+		/*customerService.saveUserCustomer(new Customer());
+		verify(customerRepository).save((Customer)anyObject());*/
+		CustomerService customerService2 = new CustomerServiceImpl(new CustomerRepositoryStub(), new RolerepositoryStub());
+		Customer customer = new Customer();
+		customer.setCustomerId(1L);
+		customer.setCustomerName("user");
+		customer.setPassword("pass1");
+		customerService2.saveUserCustomer(customer);
+		List<Customer> customers = customerService2.findAllCustomers();
+		assertThat(customers.get(0).get(0).getRoleName(), is("ROLE_USER"));
 	}
 }
