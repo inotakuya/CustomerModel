@@ -20,23 +20,32 @@ public class IndexController {
 	@Autowired
 	private ItemService itemService;
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model){
 		List<Item> itemList = itemService.findAllItems();
 		model.addAttribute("itemList",itemList);
 		return "index";
 	}
 	
-	@RequestMapping(value="create" ,method=RequestMethod.GET)
+	@RequestMapping(value = "create" , method = RequestMethod.GET)
 	public String create(Model model){
 		model.addAttribute(new Item());
 		return "create";
 	}
 	
-	@RequestMapping(value="create",method=RequestMethod.POST)
+	@RequestMapping(value = "create", method = RequestMethod.POST)
 	public String register(@ModelAttribute Item item, Model model){
 		itemService.saveItem(item);
 		return "redirect:/";
 	}
 
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public String edit(Long itemId, Model model){
+		if(itemId == null){
+			return "redirect:/";
+		}
+		Item item = itemService.getItemById(itemId);
+		model.addAttribute("item", item);
+		return "update";
+	}
 }

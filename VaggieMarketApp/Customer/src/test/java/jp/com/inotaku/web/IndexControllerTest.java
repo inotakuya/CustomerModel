@@ -3,8 +3,11 @@ package jp.com.inotaku.web;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.isNotNull;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -44,18 +47,18 @@ public class IndexControllerTest {
 	private IndexController indexController;
 
 	private MockMvc mockMvc;
-	
+
 	@Mock
 	private ItemService itemService;
 
 	@Before
 	public void setUp() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/jsp/view/");
-        viewResolver.setSuffix(".jsp");
+		viewResolver.setPrefix("/WEB-INF/jsp/view/");
+		viewResolver.setSuffix(".jsp");
 		MockitoAnnotations.initMocks(this);
-		mockMvc = standaloneSetup(indexController).setViewResolvers(viewResolver)
-				.build();
+		mockMvc = standaloneSetup(indexController).setViewResolvers(
+				viewResolver).build();
 	}
 
 	@Test
@@ -65,7 +68,8 @@ public class IndexControllerTest {
 				.andExpect(model().hasNoErrors()).andReturn();
 
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
-		List<Item> itemList = (List<Item>)modelMap.get("itemList");
+		@SuppressWarnings("unchecked")
+		List<Item> itemList = (List<Item>) modelMap.get("itemList");
 		assertThat(itemList, notNullValue());
 		verify(itemService).findAllItems();
 	}
@@ -74,28 +78,47 @@ public class IndexControllerTest {
 	public void testIndexPost() throws Exception {
 		mockMvc.perform(post("/")).andExpect(status().isMethodNotAllowed());
 	}
-	
+
 	@Test
 	public void testCreateGet() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(get("/create"))
 				.andExpect(status().isOk()).andExpect(view().name("create"))
 				.andReturn();
-		
+
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
-		Item item = (Item)modelMap.get("item");
+		Item item = (Item) modelMap.get("item");
 		assertThat(item, notNullValue(Item.class));
 	}
-	
+
 	@Test
 	public void testCreatePost() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(post("/create"))
 				.andExpect(status().isFound()).andExpect(redirectedUrl("/"))
-				.andExpect(model().attributeExists("item"))
-				.andReturn();
-		
+				.andExpect(model().attributeExists("item")).andReturn();
+
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
-		Item item = (Item)modelMap.get("item");
+		Item item = (Item) modelMap.get("item");
 		assertThat(item, notNullValue(Item.class));
-		verify(itemService).saveItem((Item)anyObject());
+		verify(itemService).saveItem((Item) anyObject());
+	}
+
+	@Test
+	public void testUpdateGet() throws Exception {
+		doReturn(new Item()).when(itemService).getItemById(anyLong());
+		MvcResult mvcResult = mockMvc
+				.perform(get("/update").param("itemId", "1"))
+				.andExpect(status().isOk()).andExpect(view().name("update"))
+				.andReturn();
+
+		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
+		Item item = (Item) modelMap.get("item");
+		assertThat(item, notNullValue(Item.class));
+		verify(itemService).getItemById(anyLong());
+	}
+
+	@Test
+	public void testUpdateGet2() throws Exception {
+		mockMvc.perform(get("/update")).andExpect(status().isFound())
+				.andExpect(redirectedUrl("/"));
 	}
 }

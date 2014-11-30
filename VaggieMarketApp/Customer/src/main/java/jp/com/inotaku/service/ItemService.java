@@ -12,4 +12,6 @@ public interface ItemService {
 	public void saveItem(Item item);
 
 	public void deleteItem(long itemId);
+	
+	public Item getItemById(long itemId);
 }
