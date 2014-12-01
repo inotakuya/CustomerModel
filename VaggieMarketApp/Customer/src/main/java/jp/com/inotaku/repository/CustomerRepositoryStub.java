@@ -10,11 +10,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-public class CustomerRepositoryStub implements CustomerRepository{
+public class CustomerRepositoryStub implements CustomerRepository {
 
 	@Delegate
-	List<Customer> customerList = new ArrayList<Customer>();
-	
+	private List<Customer> customerList = new ArrayList<Customer>();
+
 	@Override
 	public List<Customer> findAll() {
 		return customerList;
@@ -41,7 +41,7 @@ public class CustomerRepositoryStub implements CustomerRepository{
 	@Override
 	public void flush() {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
@@ -53,13 +53,13 @@ public class CustomerRepositoryStub implements CustomerRepository{
 	@Override
 	public void deleteInBatch(Iterable<Customer> entities) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void deleteAllInBatch() {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
@@ -101,25 +101,25 @@ public class CustomerRepositoryStub implements CustomerRepository{
 	@Override
 	public void delete(Long id) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void delete(Customer entity) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void delete(Iterable<? extends Customer> entities) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void deleteAll() {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override

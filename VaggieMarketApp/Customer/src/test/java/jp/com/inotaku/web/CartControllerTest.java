@@ -28,24 +28,23 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 		"file:src/main/webapp/WEB-INF/mvc-config.xml" })
 @WebAppConfiguration
 public class CartControllerTest {
-	
+
 	private MockMvc mockMvc;
-	
+
 	@InjectMocks
 	private CartController cartController;;
-	
 
 	@Before
 	public void setUp() {
-		
+
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/jsp/view/");
-        viewResolver.setSuffix(".jsp");
+		viewResolver.setPrefix("/WEB-INF/jsp/view/");
+		viewResolver.setSuffix(".jsp");
 		MockitoAnnotations.initMocks(this);
-		mockMvc = standaloneSetup(cartController).setViewResolvers(viewResolver)
-				.build();
+		mockMvc = standaloneSetup(cartController)
+				.setViewResolvers(viewResolver).build();
 	}
-	
+
 	@Test
 	public void testRegisterGet() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(get("/cart"))

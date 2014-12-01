@@ -6,12 +6,12 @@ import jp.com.inotaku.domain.Customer;
 
 public interface CustomerService {
 
-	public List<Customer> findAllCustomers();
+	List<Customer> findAllCustomers();
 
-	public void saveCustomer(Customer customer);
+	void saveCustomer(Customer customer);
 
-	public void deleteCustomer(long customerId);
+	void deleteCustomer(long customerId);
 
-	public void saveUserCustomer(Customer customer);
+	void saveUserCustomer(Customer customer);
 
 }

@@ -4,14 +4,12 @@ import java.util.List;
 
 import jp.com.inotaku.domain.Role;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long>{
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
-	public List<Role> findByRoleName(String roleName);
+	List<Role> findByRoleName(String roleName);
 
-	
 }

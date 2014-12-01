@@ -1,10 +1,7 @@
 package jp.com.inotaku.repository;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 import jp.com.inotaku.domain.Role;
 import lombok.experimental.Delegate;
@@ -13,10 +10,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-public class RolerepositoryStub implements RoleRepository{
-	
+public class RolerepositoryStub implements RoleRepository {
+
 	@Delegate
-	List<Role> roleList = new ArrayList<Role>();
+	private List<Role> roleList = new ArrayList<Role>();
 
 	@Override
 	public List<Role> findAll() {
@@ -44,7 +41,7 @@ public class RolerepositoryStub implements RoleRepository{
 	@Override
 	public void flush() {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
@@ -56,13 +53,13 @@ public class RolerepositoryStub implements RoleRepository{
 	@Override
 	public void deleteInBatch(Iterable<Role> entities) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void deleteAllInBatch() {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
@@ -104,31 +101,31 @@ public class RolerepositoryStub implements RoleRepository{
 	@Override
 	public void delete(Long id) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void delete(Role entity) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void delete(Iterable<? extends Role> entities) {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public void deleteAll() {
 		// TODO 自動生成されたメソッド・スタブ
-		
+
 	}
 
 	@Override
 	public List<Role> findByRoleName(String roleName) {
-			return roleList;
-	
+		return roleList;
+
 	}
 
 }

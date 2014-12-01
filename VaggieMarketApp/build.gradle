@@ -3,6 +3,7 @@ allprojects{
 	apply plugin: 'checkstyle'
 	apply plugin: 'findbugs'
 	apply plugin: 'jacoco'
+	
 }
 buildscript {
 	repositories {  jcenter()  }
@@ -15,6 +16,7 @@ subprojects{
 	checkstyle {
 		ignoreFailures = true
    }
+	
 	findbugs {
         ignoreFailures = true
    }
@@ -97,6 +99,7 @@ subprojects{
 			exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
 		}
 	}
+	task checkstyleTest(overwrite: true) << {}
 
 
 }

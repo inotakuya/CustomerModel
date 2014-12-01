@@ -13,18 +13,14 @@ import jp.com.inotaku.repository.RoleRepository;
 @Transactional
 public class RoleServiceImpl implements RoleService {
 
-	
 	@Autowired
 	private RoleRepository roleRepository;
-	
-	
-	
+
 	@Override
 	public void saveRole(Role role) {
 		role.setRoleName("ROLE_USER");
 		roleRepository.save(role);
 	}
-
 
 	@Override
 	public List<Role> findAllRole() {

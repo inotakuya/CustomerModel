@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/cart")
 public class CartController {
 
-	@RequestMapping(method=RequestMethod.GET)
-	public String cart(){
+	@RequestMapping(method = RequestMethod.GET)
+	public String cart() {
 		return "cart";
 	}
 }

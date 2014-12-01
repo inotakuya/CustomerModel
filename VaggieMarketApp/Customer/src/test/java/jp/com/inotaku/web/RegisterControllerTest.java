@@ -1,13 +1,9 @@
 package jp.com.inotaku.web;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyObject;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.reset;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -21,18 +17,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -46,23 +39,23 @@ public class RegisterControllerTest {
 	private WebApplicationContext wac;
 
 	private MockMvc mockMvc;
-	
+
 	@InjectMocks
 	private RegisterController registerController;
-	
+
 	@Mock
 	private CustomerService customerServiceMock;
 
 	@Before
 	public void setUp() {
-		
+
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/jsp/view/");
-        viewResolver.setSuffix(".jsp");
+		viewResolver.setPrefix("/WEB-INF/jsp/view/");
+		viewResolver.setSuffix(".jsp");
 		MockitoAnnotations.initMocks(this);
-		/*mockMvc = webAppContextSetup(wac).build();*/
-		mockMvc = standaloneSetup(registerController).setViewResolvers(viewResolver)
-				.build();
+		/* mockMvc = webAppContextSetup(wac).build(); */
+		mockMvc = standaloneSetup(registerController).setViewResolvers(
+				viewResolver).build();
 	}
 
 	@Test

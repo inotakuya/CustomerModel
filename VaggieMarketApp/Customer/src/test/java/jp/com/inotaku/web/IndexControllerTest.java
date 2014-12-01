@@ -1,14 +1,9 @@
 package jp.com.inotaku.web;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.anyLong;
-import static org.mockito.Matchers.anyObject;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.isNotNull;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -26,14 +21,12 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -103,7 +96,7 @@ public class IndexControllerTest {
 	}
 
 	@Test
-	public void testUpdateGet() throws Exception {
+	public void editTest() throws Exception {
 		doReturn(new Item()).when(itemService).getItemById(anyLong());
 		MvcResult mvcResult = mockMvc
 				.perform(get("/update").param("itemId", "1"))
@@ -117,8 +110,20 @@ public class IndexControllerTest {
 	}
 
 	@Test
-	public void testUpdateGet2() throws Exception {
+	public void edit2Test() throws Exception {
 		mockMvc.perform(get("/update")).andExpect(status().isFound())
 				.andExpect(redirectedUrl("/"));
 	}
+	
+	@Test
+	public void updateTest() throws Exception {
+		MvcResult mvcResult = mockMvc.perform(post("/update")).andExpect(status().isFound())
+				.andExpect(redirectedUrl("/")).andReturn();
+		
+		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
+		Item item = (Item)modelMap.get("item");
+		assertThat(item, notNullValue(Item.class));
+		verify(itemService).saveItem((Item)anyObject());
+	}
+	
 }

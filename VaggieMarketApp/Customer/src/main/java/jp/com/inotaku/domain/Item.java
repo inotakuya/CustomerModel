@@ -17,19 +17,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="item")
+@Table(name = "item")
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="item_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "item_id")
 	private long itemId;
-	
-	@Column(name="item_name")
+
+	@Column(name = "item_name")
 	private String itemName;
-	
-	@Column(name="price")
+
+	@Column(name = "price")
 	private int price;
 }

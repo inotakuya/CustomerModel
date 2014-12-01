@@ -8,7 +8,6 @@ import jp.com.inotaku.repository.CustomerRepository;
 import jp.com.inotaku.repository.RoleRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,17 +17,17 @@ import org.springframework.transaction.annotation.Transactional;
 @NoArgsConstructor
 @Service("customerService")
 @Transactional
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerRepository customerRepository;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Override
 	public List<Customer> findAllCustomers() {
-		return customerRepository.findAll(); 
+		return customerRepository.findAll();
 	}
 
 	@Override
@@ -43,8 +42,8 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public void saveUserCustomer(Customer customer) {
-		
-		if(roleRepository.findByRoleName("ROLE_USER").size() == 0){
+
+		if (roleRepository.findByRoleName("ROLE_USER").size() == 0) {
 			Role role = new Role();
 			role.setRoleName("ROLE_USER");
 			roleRepository.save(role);
