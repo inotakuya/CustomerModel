@@ -2,7 +2,6 @@ package jp.com.inotaku.domain;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
-
 import jp.com.inotaku.repository.CustomerRepository;
 import jp.com.inotaku.repository.RoleRepository;
 
@@ -10,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(locations = "file:src/main/resources/spring/application-config.xml")
 @TransactionConfiguration(defaultRollback = false)
 @Transactional
+@ActiveProfiles("dev")
 public class CustomerTest {
 
 	@Autowired

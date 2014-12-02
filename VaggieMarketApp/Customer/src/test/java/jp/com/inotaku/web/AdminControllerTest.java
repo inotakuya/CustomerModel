@@ -21,6 +21,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -34,10 +35,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 		"file:src/main/resources/spring/application-config.xml",
 		"file:src/main/webapp/WEB-INF/mvc-config.xml" })
 @WebAppConfiguration
-public class IndexControllerTest {
+@ActiveProfiles("dev")
+public class AdminControllerTest {
 
 	@InjectMocks
-	private IndexController indexController;
+	private AdminController indexController;
 
 	private MockMvc mockMvc;
 
@@ -55,9 +57,10 @@ public class IndexControllerTest {
 	}
 
 	@Test
-	public void testIndex() throws Exception {
-		MvcResult mvcResult = mockMvc.perform(get("/"))
-				.andExpect(status().isOk()).andExpect(view().name("index"))
+	public void indexTest() throws Exception {
+		MvcResult mvcResult = mockMvc.perform(get("/admin/index"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("admin/index"))
 				.andExpect(model().hasNoErrors()).andReturn();
 
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
@@ -68,15 +71,16 @@ public class IndexControllerTest {
 	}
 
 	@Test
-	public void testIndexPost() throws Exception {
-		mockMvc.perform(post("/")).andExpect(status().isMethodNotAllowed());
+	public void indexPostTest() throws Exception {
+		mockMvc.perform(post("/admin/index")).andExpect(
+				status().isMethodNotAllowed());
 	}
 
 	@Test
-	public void testCreateGet() throws Exception {
-		MvcResult mvcResult = mockMvc.perform(get("/create"))
-				.andExpect(status().isOk()).andExpect(view().name("create"))
-				.andReturn();
+	public void createTest() throws Exception {
+		MvcResult mvcResult = mockMvc.perform(get("/admin/create"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("admin/create")).andReturn();
 
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
 		Item item = (Item) modelMap.get("item");
@@ -84,9 +88,10 @@ public class IndexControllerTest {
 	}
 
 	@Test
-	public void testCreatePost() throws Exception {
-		MvcResult mvcResult = mockMvc.perform(post("/create"))
-				.andExpect(status().isFound()).andExpect(redirectedUrl("/"))
+	public void registerTest() throws Exception {
+		MvcResult mvcResult = mockMvc.perform(post("/admin/create"))
+				.andExpect(status().isFound())
+				.andExpect(redirectedUrl("index"))
 				.andExpect(model().attributeExists("item")).andReturn();
 
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
@@ -99,9 +104,9 @@ public class IndexControllerTest {
 	public void editTest() throws Exception {
 		doReturn(new Item()).when(itemService).getItemById(anyLong());
 		MvcResult mvcResult = mockMvc
-				.perform(get("/update").param("itemId", "1"))
-				.andExpect(status().isOk()).andExpect(view().name("update"))
-				.andReturn();
+				.perform(get("/admin/update").param("itemId", "1"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("admin/update")).andReturn();
 
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
 		Item item = (Item) modelMap.get("item");
@@ -111,19 +116,62 @@ public class IndexControllerTest {
 
 	@Test
 	public void edit2Test() throws Exception {
-		mockMvc.perform(get("/update")).andExpect(status().isFound())
-				.andExpect(redirectedUrl("/"));
+		mockMvc.perform(get("/admin/update")).andExpect(status().isFound())
+				.andExpect(redirectedUrl("index"));
 	}
-	
+
 	@Test
 	public void updateTest() throws Exception {
-		MvcResult mvcResult = mockMvc.perform(post("/update")).andExpect(status().isFound())
-				.andExpect(redirectedUrl("/")).andReturn();
+		MvcResult mvcResult = mockMvc.perform(post("/admin/update"))
+				.andExpect(status().isFound())
+				.andExpect(redirectedUrl("index")).andReturn();
+
+		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
+		Item item = (Item) modelMap.get("item");
+		assertThat(item, notNullValue(Item.class));
+		verify(itemService).saveItem((Item) anyObject());
+	}
+
+	@Test
+	public void confirmTest() throws Exception {
+		doReturn(new Item()).when(itemService).getItemById(anyLong());
+		MvcResult mvcResult = mockMvc
+				.perform(get("/admin/delete").param("itemId", "1"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("admin/delete")).andReturn();
+
+		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
+		Item item = (Item) modelMap.get("item");
+		assertThat(item, notNullValue(Item.class));
+		verify(itemService).getItemById(anyLong());
+	}
+
+	@Test
+	public void confirm2Test() throws Exception {
+		mockMvc.perform(get("/admin/delete")).andExpect(status().isFound())
+				.andExpect(redirectedUrl("index"));
+
+		verify(itemService, never()).getItemById(anyLong());
+	}
+
+	@Test
+	public void deleteTest() throws Exception {
+		mockMvc.perform(post("/admin/delete").param("itemId", "1"))
+				.andExpect(status().isFound())
+				.andExpect(redirectedUrl("index")).andReturn();
+
+		verify(itemService).deleteItem(anyLong());
+	}
+
+	@Test
+	public void searchTest() throws Exception {
+		MvcResult mvcResult = mockMvc.perform(post("/admin/search"))
+				.andExpect(status().isFound())
+				.andExpect(redirectedUrl("index")).andReturn();
 		
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
-		Item item = (Item)modelMap.get("item");
-		assertThat(item, notNullValue(Item.class));
-		verify(itemService).saveItem((Item)anyObject());
+		List<Item> itemList = (List<Item>)modelMap.get("itemList");
+		
+		verify(itemService).getItemListByName(anyString());
 	}
-	
 }

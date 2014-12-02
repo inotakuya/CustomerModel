@@ -5,13 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>商品編集</title>
+<title>商品登録</title>
 </head>
 <body>
-	<h1>商品編集</h1>
-	<form:form modelAttribute="item" action="update" method="post">
+<h1>商品登録</h1>
+<form:form modelAttribute="item" action="create" method="post">
 		<table>
-		<form:hidden path="itemId"/>
 			<tr>
 				<td>商品名</td>
 				<td><form:input path="itemName" /></td>
@@ -26,7 +25,7 @@
 		<input type="reset" value="リセット" />
 		<br>
 		<br>
-		<a href="item">HOME</a>
+		<a href="index">HOME</a>
 	</form:form>
 </body>
 </html>

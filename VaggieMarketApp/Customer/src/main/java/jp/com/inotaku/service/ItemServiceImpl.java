@@ -36,4 +36,9 @@ public class ItemServiceImpl implements ItemService {
 		return itemRepository.findOne(itemId);
 	}
 
+	@Override
+	public List<Item> getItemListByName(String itemName) {
+		return null;
+	}
+
 }

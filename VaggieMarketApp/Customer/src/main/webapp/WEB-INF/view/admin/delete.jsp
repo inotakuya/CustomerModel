@@ -5,26 +5,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>商品登録</title>
+<title>商品削除</title>
 </head>
 <body>
-<form:form modelAttribute="item" action="create" method="post">
+	<h1>商品削除</h1>
+	<form:form modelAttribute="item" action="delete" method="post">
 		<table>
+		<form:hidden path="itemId"/>
 			<tr>
 				<td>商品名</td>
-				<td><form:input path="itemName" /></td>
+				<td><form:input path="itemName" disabled="true"/></td>
 			</tr>
 			<tr>
 				<td>価格</td>
-				<td><form:input path="price" /></td>
+				<td><form:input path="price" disabled="true"/></td>
 			</tr>
 		</table>
 		<br>
-		<input type="submit" value="登録" />
+		<input type="submit" value="削除" />
 		<input type="reset" value="リセット" />
 		<br>
 		<br>
-		<a href="/Customer">HOME</a>
+		<a href="index">HOME</a>
 	</form:form>
 </body>
 </html>

@@ -19,6 +19,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -33,6 +34,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 		"file:src/main/resources/spring/application-config.xml",
 		"file:src/main/webapp/WEB-INF/mvc-config.xml" })
 @WebAppConfiguration
+@ActiveProfiles("dev")
 public class RegisterControllerTest {
 
 	@Autowired

@@ -13,44 +13,67 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/")
-public class IndexController {
+@RequestMapping("/admin/")
+public class AdminController {
 
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String index(Model model) {
 		List<Item> itemList = itemService.findAllItems();
 		model.addAttribute("itemList", itemList);
-		return "index";
+		return "admin/index";
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String create(Model model) {
 		model.addAttribute(new Item());
-		return "create";
+		return "admin/create";
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
 	public String register(@ModelAttribute Item item, Model model) {
 		itemService.saveItem(item);
-		return "redirect:/";
+		return "redirect:index";
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.GET)
 	public String edit(Long itemId, Model model) {
 		if (itemId == null) {
-			return "redirect:/";
+			return "redirect:index";
 		}
 		Item item = itemService.getItemById(itemId);
 		model.addAttribute("item", item);
-		return "update";
+		return "admin/update";
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(@ModelAttribute Item item, Model model) {
 		itemService.saveItem(item);
-		return "redirect:/";
+		return "redirect:index";
+	}
+
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String confirm(Long itemId, Model model) {
+		if (itemId == null) {
+			return "redirect:index";
+		}
+		Item item = itemService.getItemById(itemId);
+		model.addAttribute("item", item);
+		return "admin/delete";
+	}
+
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(Long itemId, Model model) {
+		itemService.deleteItem(itemId);
+		return "redirect:index";
+	}
+
+	@RequestMapping(value = "search", method = RequestMethod.POST)
+	public String search(String itemName, Model model) {
+		List<Item> itemList = itemService.getItemListByName(itemName);
+		model.addAttribute("itemList", itemList);
+		return "redirect:index";
 	}
 }

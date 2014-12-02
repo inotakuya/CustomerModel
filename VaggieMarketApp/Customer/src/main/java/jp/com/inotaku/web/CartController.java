@@ -1,6 +1,9 @@
 package jp.com.inotaku.web;
 
+import jp.com.inotaku.domain.Cart;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CartController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String cart() {
+	public String cart(Model model) {
+		model.addAttribute(new Cart());
 		return "cart";
 	}
 }
