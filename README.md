@@ -8,9 +8,9 @@
 
 ### Customerプロジェクト
 * 認証サーバー
-* 顧客データベース等のORM(Object Relational Mapper)
+* 顧客データベース等のORM(Object Relational Mapper) Hibernate使用
 * 単体・結合テストを使ったTDD/XP/Scrum
-* Mockito/JUnit4/MockMvc + Stub + ContextConfiguration(DIのテストもあり)
+* Mockito/JUnit4/MockMvc/dbunit + Stub + ContextConfiguration(DIのテストもあり)
 * 予定：Spring Batch/Taskの追加を予定
 
 ### jsプロジェクト（Node.js）
@@ -24,5 +24,5 @@
 * EAI/EIP サーバー
 * Spring Integrationサーバー
 
-![image](Integration.png)
+
 
