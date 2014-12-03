@@ -11,6 +11,7 @@
 * 顧客データベース等のORM(Object Relational Mapper)
 * 単体・結合テストを使ったTDD/XP/Scrum
 * Mockito/JUnit4/MockMvc + Stub + ContextConfiguration(DIのテストもあり)
+* 予定：Spring Batch/Taskの追加を予定
 
 ### jsプロジェクト（Node.js）
 * Backbone.js / jQuery / underscore
