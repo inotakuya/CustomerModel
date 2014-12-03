@@ -12,12 +12,11 @@ import lombok.experimental.Delegate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Delegate
 	private List<ItemSet> itemSetList = new ArrayList<ItemSet>();
-	
-	
+
 }

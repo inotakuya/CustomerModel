@@ -166,12 +166,13 @@ public class AdminControllerTest {
 	@Test
 	public void searchTest() throws Exception {
 		MvcResult mvcResult = mockMvc.perform(post("/admin/search"))
-				.andExpect(status().isFound())
-				.andExpect(redirectedUrl("index")).andReturn();
+				.andExpect(status().isOk())
+				.andExpect(view().name("admin/index")).andReturn();
 		
 		ModelMap modelMap = mvcResult.getModelAndView().getModelMap();
+		@SuppressWarnings("unchecked")
 		List<Item> itemList = (List<Item>)modelMap.get("itemList");
-		
+		assertThat(itemList, notNullValue());
 		verify(itemService).getItemListByName(anyString());
 	}
 }

@@ -74,6 +74,6 @@ public class AdminController {
 	public String search(String itemName, Model model) {
 		List<Item> itemList = itemService.getItemListByName(itemName);
 		model.addAttribute("itemList", itemList);
-		return "redirect:index";
+		return "admin/index";
 	}
 }

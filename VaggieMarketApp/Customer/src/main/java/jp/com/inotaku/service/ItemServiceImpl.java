@@ -15,7 +15,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private ItemRepository itemRepository;
-	
+
 	@Override
 	public List<Item> findAllItems() {
 		return itemRepository.findAll();
@@ -38,7 +38,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public List<Item> getItemListByName(String itemName) {
-		return null;
+		return itemRepository.findByItemNameLike("%" + itemName + "%");
 	}
 
 }
