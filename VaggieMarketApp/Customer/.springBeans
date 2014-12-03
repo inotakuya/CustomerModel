@@ -7,12 +7,12 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-<<<<<<< HEAD
-=======
 		<config>src/main/resources/spring/application-config.xml</config>
->>>>>>> Customer
+		<config>src/test/resources/spring/testConfig.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/resources/spring/applicationContext-security.xml</config>
+		<config>src/main/webapp/WEB-INF/mvc-config.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

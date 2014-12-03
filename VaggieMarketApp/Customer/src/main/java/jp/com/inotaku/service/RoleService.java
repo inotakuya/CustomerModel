@@ -6,7 +6,7 @@ import jp.com.inotaku.domain.Role;
 
 public interface RoleService {
 
-	public void saveRole(Role role);
-	
-	public List<Role> findAllRole();
+	void saveRole(Role role);
+
+	List<Role> findAllRole();
 }

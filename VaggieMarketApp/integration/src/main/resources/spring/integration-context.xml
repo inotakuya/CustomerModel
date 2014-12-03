@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
 	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
 	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
@@ -34,4 +35,11 @@
 	<rabbit:connection-factory id="connectionFactory"
 		host="localhost" />
 
+	
+	
+	
+	
+	
+	
+	
 </beans>
