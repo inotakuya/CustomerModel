@@ -23,5 +23,5 @@
 * EAI/EIP サーバー
 * Spring Integrationサーバー
 
-
+![image](Integration.png)
 
