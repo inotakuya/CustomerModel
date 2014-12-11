@@ -9,26 +9,13 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<context:property-placeholder location="classpath:spring/database.properties" />
+
 	<context:component-scan base-package="jp.com.inotaku.">
 		<context:exclude-filter expression="org.springframework.stereotype.Controller"
 			type="annotation" />
 	</context:component-scan>
 	<jpa:repositories base-package="jp.com.inotaku.repository"></jpa:repositories>
 
-	<bean class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close" id="dataSource">
-		<property name="driverClassName" value="${database.driverClassName}" />
-		<property name="url" value="${database.url}" />
-		<property name="username" value="${database.username}" />
-		<property name="password" value="${database.password}" />
-		<property name="testOnBorrow" value="true" />
-		<property name="testOnReturn" value="true" />
-		<property name="testWhileIdle" value="true" />
-		<property name="timeBetweenEvictionRunsMillis" value="1800000" />
-		<property name="numTestsPerEvictionRun" value="3" />
-		<property name="minEvictableIdleTimeMillis" value="1800000" />
-	</bean>
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"
 		id="transactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -47,6 +34,23 @@
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"></bean>
 
-	
+	<beans profile="dev">
+		<context:property-placeholder location="classpath:spring/database.properties" />
+
+		<bean class="org.apache.commons.dbcp.BasicDataSource"
+			destroy-method="close" id="dataSource">
+			<property name="driverClassName" value="${database.driverClassName}" />
+			<property name="url" value="${database.url}" />
+			<property name="username" value="${database.username}" />
+			<property name="password" value="${database.password}" />
+			<property name="testOnBorrow" value="true" />
+			<property name="testOnReturn" value="true" />
+			<property name="testWhileIdle" value="true" />
+			<property name="timeBetweenEvictionRunsMillis" value="1800000" />
+			<property name="numTestsPerEvictionRun" value="3" />
+			<property name="minEvictableIdleTimeMillis" value="1800000" />
+		</bean>
+	</beans>
+
 
 </beans>

@@ -1,2 +1,2 @@
-include "security","js","Shoppingsite","Customer","CustomerModel"
+include "security","js","Shoppingsite","Customer","CustomerModel","integration"
 
