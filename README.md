@@ -24,5 +24,11 @@
 * EAI/EIP サーバー
 * Spring Integrationサーバー
 
+###アーキテクチャ
+---
+![アーキテクチャ](アーキテクチャ2.png)
+---
+![Integration](integration図4.png)
+
 
 
